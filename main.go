@@ -42,6 +42,7 @@ func main() {
 	go http.ListenAndServeTLS("localhost:3000", "cert.pem", "key.pem", nil)
 
 	for update := range updates {
+		log.Printf("==================== { UPDATE } ====================")
 		log.Printf("%+v\n", update)
 	}
 }
