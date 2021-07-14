@@ -25,7 +25,7 @@ func main() {
 
 	log.Printf("Authorized on account %s", bot.Self.UserName)
 
-	_, err = bot.SetWebhook(tgbotapi.NewWebhookWithCert(MainUrl+bot.Token, "cert.pem"))
+	_, err = bot.SetWebhook(tgbotapi.NewWebhook(MainUrl+bot.Token))
 	if err != nil {
 		log.Fatal("error al setear webhook")
 		log.Fatal(err)
