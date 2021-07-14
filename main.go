@@ -45,5 +45,15 @@ func main() {
 	for update := range updates {
 		log.Printf("==================== { UPDATE } ====================")
 		log.Printf("%+v\n", update)
+		if update.Message == nil { // ignore any non-Message Updates
+			continue
+		}
+		log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
+
+		msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
+		msg.ReplyToMessageID = update.Message.MessageID
+		typing := tgbotapi.NewChatAction(update.Message.Chat.ID, tgbotapi.ChatTyping);
+		bot.Send(typing)
+		bot.Send(msg)
 	}
 }
