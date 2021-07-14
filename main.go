@@ -44,8 +44,9 @@ func main() {
 
 	for update := range updates {
 		log.Printf("==================== { UPDATE } ====================")
-		log.Printf("%+v\n", update)
+		// log.Printf("%+v\n", update)
 		if update.Message == nil { // ignore any non-Message Updates
+			log.Printf("El mensaje viene vacío")
 			continue
 		}
 		log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
