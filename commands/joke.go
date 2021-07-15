@@ -7,7 +7,7 @@ import (
 
 
 
-func jokeFetcher() (string, error) {
+func Joke() (string, error) {
     resp, err := http.Get("http://api.icndb.com/jokes/random")
     c := &joke{}
     if err != nil {
