@@ -68,6 +68,8 @@ func main() {
 			default:
 				msg.Text = "I don't know that command"
 			}
+			typing := tgbotapi.NewChatAction(update.Message.Chat.ID, tgbotapi.ChatTyping);
+			bot.Send(typing)
 			bot.Send(msg)
 		}
 	}
