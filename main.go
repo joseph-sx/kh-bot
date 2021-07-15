@@ -6,6 +6,7 @@ import (
 	"log"
 	"github.com/joho/godotenv"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/kh-bot/commands"
 )
 
 func main() {
@@ -53,6 +54,7 @@ func main() {
 
 		if update.Message.IsCommand() {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "")
+			joke, err := commands.Joke()
 			switch update.Message.Command() {
 			case "help":
 				msg.Text = "Available Commands \n /sayhi  \n /status."
@@ -60,6 +62,8 @@ func main() {
 				msg.Text = "Hi :)"
 			case "status":
 				msg.Text = "I'm ok."
+			case "joke":
+				msg.Text = joke
 			case "withArgument":
 				msg.Text = "You supplied the following argument: " + update.Message.CommandArguments()
 			case "html":
