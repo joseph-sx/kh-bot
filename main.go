@@ -55,7 +55,7 @@ func main() {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "")
 			switch update.Message.Command() {
 			case "help":
-				msg.Text = "type /sayhi or /status."
+				msg.Text = "Available Commands \n /sayhi  \n /status."
 			case "sayhi":
 				msg.Text = "Hi :)"
 			case "status":
