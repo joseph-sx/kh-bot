@@ -4,9 +4,10 @@ import (
 	"net/http"
 	"os"
 	"log"
+	
 	"github.com/joho/godotenv"
 	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/kh-bot/commands"
+	"github.com/joseph-sx/kh-bot/commands"
 )
 
 func main() {
@@ -25,8 +26,8 @@ func main() {
 	bot.Debug = true
 
 	log.Printf("Authorized on account %s", bot.Self.UserName)
-
-	_, err = bot.SetWebhook(tgbotapi.NewWebhook(MainUrl+bot.Token))
+	webhookUrl := (MainUrl+bot.Token)
+	_, err = bot.SetWebhook(tgbotapi.NewWebhook(webhookUrl))
 	if err != nil {
 		log.Fatal("error al setear webhook")
 		log.Fatal(err)
@@ -57,12 +58,16 @@ func main() {
 			joke, err := commands.Joke()
 			switch update.Message.Command() {
 			case "help":
-				msg.Text = "Available Commands \n /sayhi  \n /status."
+				msg.Text = "Available Commands \n /joke \n /sayhi  \n /status."
 			case "sayhi":
 				msg.Text = "Hi :)"
 			case "status":
 				msg.Text = "I'm ok."
 			case "joke":
+				if(err != nil){
+					log.Printf(joke)
+					log.Panic("Error al traer /joke")
+				}
 				msg.Text = joke
 			case "withArgument":
 				msg.Text = "You supplied the following argument: " + update.Message.CommandArguments()
