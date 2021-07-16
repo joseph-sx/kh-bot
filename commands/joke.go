@@ -2,13 +2,22 @@ package commands
 
 import (
     "net/http"
-    // "log"
+    "log"
     "encoding/json"
 )
 
 
 
-func Joke() (string, error) {
+func Joke() string {
+    joke, err := getJoke()
+    if(err != nil){
+        log.Printf(joke)
+        log.Panic("Error al traer /joke")
+    }
+    return joke
+}
+
+func getJoke() (string, error){
     resp, err := http.Get("http://api.icndb.com/jokes/random")
     c := &joke{}
     if err != nil {

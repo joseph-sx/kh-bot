@@ -55,7 +55,7 @@ func main() {
 
 		if update.Message.IsCommand() {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "")
-			joke, err := commands.Joke()
+			
 			switch update.Message.Command() {
 			case "help":
 				msg.Text = "Available Commands \n /joke \n /sayhi  \n /status."
@@ -64,10 +64,7 @@ func main() {
 			case "status":
 				msg.Text = "I'm ok."
 			case "joke":
-				if(err != nil){
-					log.Printf(joke)
-					log.Panic("Error al traer /joke")
-				}
+				joke := commands.Joke()
 				msg.ParseMode = "html"
 				msg.Text = joke
 			case "withArgument":
