@@ -68,6 +68,7 @@ func main() {
 					log.Printf(joke)
 					log.Panic("Error al traer /joke")
 				}
+				msg.ParseMode = "html"
 				msg.Text = joke
 			case "withArgument":
 				msg.Text = "You supplied the following argument: " + update.Message.CommandArguments()
