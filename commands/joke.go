@@ -24,6 +24,7 @@ func getJoke() (string, error){
         return "", err
     }
     err = json.NewDecoder(resp.Body).Decode(c)
+    log.Printf(c.Value.Joke)
     return c.Value.Joke, err
 }
 

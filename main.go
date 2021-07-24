@@ -69,6 +69,13 @@ func main() {
 				msg.Text = joke
 			case "withArgument":
 				msg.Text = "You supplied the following argument: " + update.Message.CommandArguments()
+			case "pokemon":
+				arg := update.Message.CommandArguments() 
+				poke := commands.Pokemon(arg)
+				msg.ParseMode = "markdown"
+				log.Printf("==================== { POKEMON } ====================")
+				log.Println(poke)
+				msg.Text = "[​​​​​​​​​​​]("+poke+") Pokemon"
 			case "html":
 				msg.ParseMode = "html"
 				msg.Text = "This will be interpreted as HTML, click <a href=\"https://www.example.com\">here</a>"
