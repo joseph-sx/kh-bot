@@ -34,10 +34,16 @@ func Pokemon(Pokemon string) string{
 		log.Println(err)
 	}
 	img,name,name_j,p_type := poke_dat.Hires,poke_dat.Name.English,poke_dat.Name.Japanese, poke_dat.Type
+	if img !=""{
 	ret :=  "Pokemon name: "+ name + " ("+name_j+")"
 	ret += "\nType: "+ p_type[0]
 	ret += " [\n.\t]("+img+")\n"
 	return ret
+	}else{
+		ret := "pokemon provided not found"
+		return ret
+	}
+	
 	
 }
 
