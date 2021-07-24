@@ -75,7 +75,7 @@ func main() {
 				msg.ParseMode = "markdown"
 				log.Printf("==================== { POKEMON } ====================")
 				log.Println(poke)
-				msg.Text = "[​​​​​​​​​​​]("+poke+") Pokemon"
+				msg.Text = poke
 			case "html":
 				msg.ParseMode = "html"
 				msg.Text = "This will be interpreted as HTML, click <a href=\"https://www.example.com\">here</a>"

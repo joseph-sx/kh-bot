@@ -33,7 +33,11 @@ func Pokemon(Pokemon string) string{
 	if err := json.NewDecoder(resp.Body).Decode(&poke_dat); err != nil {
 		log.Println(err)
 	}
-	return poke_dat.Hires
+	img,name,name_j,p_type := poke_dat.Hires,poke_dat.Name.English,poke_dat.Name.Japanese, poke_dat.Type
+	ret :=  "Pokemon name: "+ name + " ("+name_j+")"
+	ret += "\nType:  \n"+ p_type[0]
+	ret += " [\n.\t]("+img+")\n"
+	return ret
 	
 }
 
