@@ -58,7 +58,7 @@ func main() {
 			
 			switch update.Message.Command() {
 			case "help":
-				msg.Text = "Available Commands \n /joke \n /sayhi  \n /status."
+				msg.Text = "Available Commands \n /joke \n /pokemon name \n /sayhi  \n /status."
 			case "sayhi":
 				msg.Text = "Hi :)"
 			case "status":

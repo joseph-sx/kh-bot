@@ -38,7 +38,7 @@ func Pokemon(Pokemon string) string{
 		ret :=  "Pokemon name: "+ name + " ("+name_j+")"
 		ret += "\nType: "+ p_type[0]
 		ret += "\nDescription: "+ desc
-		ret += " [\n.\t]("+img+")\n"
+		ret += " [\n \u3000 \t]("+img+")\n"
 		return ret
 	}else{
 		ret := "pokemon provided not found"
