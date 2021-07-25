@@ -57,12 +57,14 @@ func main() {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "")
 			
 			switch update.Message.Command() {
+			case "start":
+				msg.Text ="Welcome, these are my available Commands \n /joke  \n /pokemon name \n /sayhi  \n /status."
 			case "help":
-				msg.Text = "Available Commands \n /joke \n /pokemon name \n /sayhi  \n /status."
+				msg.Text = "Available Commands \n /joke  \n /pokemon name \n /sayhi  \n /status."
 			case "sayhi":
-				msg.Text = "Hi :)"
+				msg.Text = "Hi gophers :)"
 			case "status":
-				msg.Text = "I'm ok."
+				msg.Text = "I'm ok, thanks for ask"
 			case "joke":
 				joke := commands.Joke()
 				msg.ParseMode = "html"

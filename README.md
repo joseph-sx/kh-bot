@@ -15,4 +15,7 @@ PORT=7777
 
 - Run `go run main.go` and enjoy it.
 
+You can see it in action [t.me/SimpleGolangBot](http://t.me/SimpleGolangBot)
 
+
+...
